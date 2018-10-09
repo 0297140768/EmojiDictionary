@@ -13,11 +13,13 @@ class Emoji {
     var name: String
     var description: String
     var usage: String
+    var group: String
     
-    init(symbol: String, name: String, description: String, usage: String) {
+    init(symbol: String, name: String, description: String, usage: String, group: String) {
         self.symbol = symbol
         self.name = name
         self.description = description
         self.usage = usage
+        self.group = group
     }
 }
