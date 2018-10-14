@@ -16,7 +16,7 @@ class EmojiEditTableViewController: UITableViewController {
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var usageTextField: UITextField!
     @IBOutlet weak var groupTextField: UITextField!
-
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     let captions = ["Symbol",
                     "Name",
                     "Description",
@@ -39,6 +39,14 @@ class EmojiEditTableViewController: UITableViewController {
         
         tableView.sectionFooterHeight = 0.0;
         
+        symbolTextField.delegate = self
+        nameTextField.delegate = self
+        descriptionTextField.delegate = self
+        usageTextField.delegate = self
+        groupTextField.delegate = self
+        
+        updateSaveButton()
+        
     }
     
     @IBAction func endEdit(_ sender: UITextField) {
@@ -54,6 +62,18 @@ class EmojiEditTableViewController: UITableViewController {
         default:
             hideKeyboard()
         }
+        updateSaveButton()
+    }
+    
+    func updateSaveButton() {
+        var allOk = true
+        if !symbolTextField.text!.isSingleEmoji { allOk = false }
+        if nameTextField.text!.count == 0 { allOk = false }
+        if descriptionTextField.text!.count == 0 { allOk = false }
+        if usageTextField.text!.count == 0 { allOk = false }
+        if groupTextField.text!.count == 0 { allOk = false }
+        
+        saveButton.isEnabled = allOk
     }
 
     @objc func hideKeyboard() {
@@ -97,4 +117,10 @@ class EmojiEditTableViewController: UITableViewController {
     
     
 
+}
+
+extension EmojiEditTableViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButton()
+    }
 }

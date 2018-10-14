@@ -256,6 +256,7 @@
                         <outlet property="descriptionTextField" destination="22D-vo-D9u" id="hmo-Pf-kwq"/>
                         <outlet property="groupTextField" destination="dAa-lB-igi" id="fkE-fm-6u4"/>
                         <outlet property="nameTextField" destination="8uE-jM-ghR" id="Rhz-Nh-R4N"/>
+                        <outlet property="saveButton" destination="Cho-wW-ddX" id="fvN-RK-VN5"/>
                         <outlet property="symbolTextField" destination="DyL-Oa-MHG" id="e2C-s7-lBJ"/>
                         <outlet property="usageTextField" destination="W1Q-Wd-rzC" id="zN5-Hn-udE"/>
                     </connections>
